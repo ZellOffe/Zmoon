@@ -3,7 +3,7 @@
   "version": "1.9.0",
   "productName": "Zmoon launcher",
   "description": "☀ Custom launcher For Zmoon By Zwork",
-  "author": "Daniel Scalzi (https://github.com/ZellOffe/) + zeloffe",
+  "author": "Zeloffe (https://github.com/ZellOffe/)",
   "license": "UNLICENSED",
   "homepage": "https://github.com/ZellOffe/Zmoon.git",
   "bugs": {
@@ -46,6 +46,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZellOffe/Zmoon.git"
+        "url": "git+https://github.com/dscalzi/HeliosLauncher.git"
   }
 }
