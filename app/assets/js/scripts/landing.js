@@ -939,7 +939,7 @@ document.addEventListener('keydown', (e) => {
 function displayArticle(articleObject, index){
     newsArticleTitle.innerHTML = articleObject.title
     newsArticleTitle.href = articleObject.link
-    newsArticleAuthor.innerHTML = 'by zel' + articleObject.author
+    newsArticleAuthor.innerHTML = 'by zel'
     newsArticleDate.innerHTML = articleObject.date
     newsArticleComments.innerHTML = articleObject.comments
     newsArticleComments.href = articleObject.commentsLink
