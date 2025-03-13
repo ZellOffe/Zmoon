@@ -235,18 +235,20 @@ const refreshMojangStatuses = async function(){
     document.getElementById('mojang_status_icon').style.color = MojangRestAPI.statusToHex(status)
 }
 
-const refreshServerStatus = async (fade = false) => {
+const refreshServerStatus = async function(fade = false){
     loggerLanding.info('Refreshing Server Status')
-    const serv = (await DistroAPI.getDistribution()).getServerById(ConfigManager.getSelectedServer())
+    const serv = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
 
-    let pLabel = Lang.queryJS('landing.serverStatus.server')
-    let pVal = Lang.queryJS('landing.serverStatus.offline')
+
+    let pLabel = 'SERVEUR'
+    let pVal = 'HORS-LIGNE'
 
     try {
+        const serverURL = new URL('my://' + serv.getAddress())
 
-        const servStat = await getServerStatus(47, serv.hostname, serv.port)
+        const servStat = await getServerStatus(47, serverURL.hostname, Number(serverURL.port))
         console.log(servStat)
-        pLabel = Lang.queryJS('landing.serverStatus.players')
+        pLabel = 'JOUEURS'
         pVal = servStat.players.online + '/' + servStat.players.max
 
     } catch (err) {
@@ -736,8 +738,8 @@ let newsLoadingListener = null
  */
 function setNewsLoading(val){
     if(val){
-        const nLStr = Lang.queryJS('landing.news.checking')
-        let dotStr = '..'
+        const nLStr = Lang.queryJS('Vérification des actualitées')
+        let dotStr = '...'
         nELoadSpan.innerHTML = nLStr + dotStr
         newsLoadingListener = setInterval(() => {
             if(dotStr.length >= 3){
@@ -937,7 +939,7 @@ document.addEventListener('keydown', (e) => {
 function displayArticle(articleObject, index){
     newsArticleTitle.innerHTML = articleObject.title
     newsArticleTitle.href = articleObject.link
-    newsArticleAuthor.innerHTML = 'by ' + articleObject.author
+    newsArticleAuthor.innerHTML = 'by zel' + articleObject.author
     newsArticleDate.innerHTML = articleObject.date
     newsArticleComments.innerHTML = articleObject.comments
     newsArticleComments.href = articleObject.commentsLink
