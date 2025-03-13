@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "homepage": "https://github.com/ZellOffe/Zmoon.git",
   "bugs": {
-    "url": "https://github.com/ZellOffe/Zmoon.git"
+    "url": "https://github.com/ZellOffe/Zmoon/issues"
   },
   "private": true,
   "main": "index.js",
